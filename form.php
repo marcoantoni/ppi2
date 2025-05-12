@@ -6,7 +6,7 @@
 	<title></title>
 </head>
 <body>
-	<form method="GET" action="proc_form.php">
+	<form method="POST" action="proc_form.php">
 		<fieldset>
 			<legend>Exemplo de formulário</legend>
 			Nome: <input name="nome" type="text"> <br>
@@ -21,7 +21,7 @@
 				<option>Taquara</option>
 			</select> 
 			<br>
-			<input type="submit">
+			<input type="submit" name="enviar">
 		</fieldset>
 	</form>
 </body>
