@@ -50,7 +50,15 @@
 		$con = mysqli_connect("localhost", "root", "", "programacaoparainternet", 3306);
 
 		// consulta sql que insere no banco
-		echo $sql = "INSERT INTO usuarios (nome, email, telefone, cpf, nascimento, senha) VALUES ('$usuario', '$email', '$telefone', '$cpf', '$nascimento', '$senha') ";
+		$sql = "INSERT INTO usuarios (nome, email, telefone, cpf, nascimento, senha) VALUES ('$usuario', '$email', '$telefone', '$cpf', '$nascimento', '$senha') ";
+
+		if (mysqli_query($con, $sql) ){
+			// retornou true - consulta executada com sucesso
+			echo ("<script>alert('Usuário inserido com sucesso'); </script>");// por enquanto mostrando a mensagem usando um alert
+			//header("location: mostrar.php");
+		} else {
+			echo ("Houve um erro ao inserir no banco de dados");
+		}
 	} else {
 		// se cair aqui, é porque tem erros
 		foreach($erros as $erro){
