@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="../css/form.css">
 </head>
 <body>
+	<div class="container">
 	<form method="POST" action="proc_form.php">
 		<fieldset>
 			<legend>Novo usuário</legend>
@@ -20,5 +21,6 @@
 			<input type="submit" name="enviar" value="Cadastrar">
 		</fieldset>
 	</form>
+</div>
 </body>
 </html>

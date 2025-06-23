@@ -49,12 +49,27 @@
 		// ip do servidor mysql, usuario do banco de dados, senha do banco de dados, porta do mysql (esse parametro é opcional)
 		$con = mysqli_connect("localhost", "root", "", "programacaoparainternet", 3306);
 
-		// consulta sql que insere no banco
-		$sql = "INSERT INTO usuarios (nome, email, telefone, cpf, nascimento, senha) VALUES ('$usuario', '$email', '$telefone', '$cpf', '$nascimento', '$senha') ";
+		$id = $_POST["id_usuario"];	// recuperando o campo oculto do formulário - necessário para saber se a operação é de edição
+
+		// testa se variavel $id está preenchida
+		if (isset($id) && !empty($id) ) {
+			// se o $id está preenchido, a consulta é UPDATE
+			$sql = "UPDATE usuarios SET nome = '$usuario', email = '$email', telefone = '$telefone', cpf = '$cpf', nascimento = '$nascimento', senha = '$senha' WHERE id = $id";
+		} else {
+			// consulta sql que insere no banco
+			$sql = "INSERT INTO usuarios (nome, email, telefone, cpf, nascimento, senha) VALUES ('$usuario', '$email', '$telefone', '$cpf', '$nascimento', '$senha') ";
+		}
 
 		if (mysqli_query($con, $sql) ){
 			// retornou true - consulta executada com sucesso
-			echo ("<script>alert('Usuário inserido com sucesso'); </script>");// por enquanto mostrando a mensagem usando um alert
+
+			// validação para saber se a consulta foi de edição ou inserção e apresentar a mensagem apropriada ao usuário
+			if (isset($id) && !empty($id) ) {
+				echo ("<script>alert('Usuário atualizado com sucesso'); </script>");// por enquanto mostrando a mensagem usando um alert
+			} else { 
+				echo ("<script>alert('Usuário inserido com sucesso'); </script>");// por enquanto mostrando a mensagem usando um alert
+			}
+
 			//header("location: mostrar.php");
 		} else {
 			echo ("Houve um erro ao inserir no banco de dados");

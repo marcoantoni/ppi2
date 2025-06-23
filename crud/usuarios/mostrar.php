@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Mostrando os usuários cadastrados</title>
+	<link rel="stylesheet" href="../css/table.css">
 </head>
 <body>
 	<h1>Usuários cadastrados</h1>
