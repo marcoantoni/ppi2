@@ -1,63 +1,68 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
+    padding: 20px;
 }
+
 .container {
     background: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 350px;
+    max-width: 500px;
+    margin: 40px auto;
+}
+
+/* Estilo do fieldset e legend */
+fieldset {
+    border: none;
+    padding: 0;
+}
+
+legend {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
     text-align: center;
 }
-h2 {
-    margin-bottom: 20px;
-}
-input, select {
-    box-sizing: border-box;
+
+/* Estilo dos rótulos e inputs */
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="password"] {
     width: 95%;
-    padding: 10px;
-    margin: 10px 0;
+    padding: 10px 12px;
+    margin: 8px 0 16px 0;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
 }
-input[type="date"] {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-color: white;
-    color: #555;
+
+input:focus {
+    outline: none;
+    border-color: #28a745;
+    box-shadow: 0 0 4px rgba(40, 167, 69, 0.2);
 }
-button {
-    background: #28a745;
+
+/* Botão de envio com base na classe .btn */
+input[type="submit"] {
+    background-color: #28a745;
     color: white;
     border: none;
-    padding: 10px;
-    width: 100%;
+    padding: 10px 16px;
     border-radius: 5px;
-    cursor: pointer;
     font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
 }
-button:hover {
-    background: #218838;
-}
-.error {
-    color: red;
-    font-size: 14px;
-}
-.radio-group {
-    text-align: left;
-    margin: 10px 0;
-    display: flex;
-    justify-content: space-between;
-}
-.radio-group label {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+
+input[type="submit"]:hover {
+    background-color: #218838;
 }
