@@ -19,7 +19,7 @@
 		}
 
 		// consulta para buscar os usuários com o nome em ordem alfabética
-		$sql = "SELECT nome, email, telefone, cpf, DATE_FORMAT(nascimento, '%d/%m/%Y') AS nascimento FROM usuarios";
+		$sql = "SELECT id, nome, email, telefone, cpf, DATE_FORMAT(nascimento, '%d/%m/%Y') AS nascimento FROM usuarios";
 
 		// variavel para armazenar o que a função mysqli_query retornou
 		// consultas do tipo select retornam um result set (conjunto de registros)		
@@ -36,6 +36,7 @@
 						<th>Data de nascimento</th>
 						<th>CPF</th>
 						<th>Telefone</th>
+						<th>Ações</th>
 					</tr>
 				</thread>
 				<tbody>'
@@ -51,6 +52,12 @@
 				echo ("<td>" . $linha["nascimento"] . "</td>");
 				echo ("<td>" . $linha["cpf"] . "</td>");
 				echo ("<td>" . $linha["telefone"] . "</td>");
+				// exibindo os botões de ações
+				echo ("<td>
+						<a href='edit.php?id=" . $linha['id'] ." ' class='btn btn-edit'>Editar</a>
+						<a href='delete.php?id=" . $linha['id'] . " ' class='btn btn-delete'>Excluir</a>
+					</td>
+				");
 				echo ("</tr>");	// fecha a linha
 			}
 			// depois que saiu do while
