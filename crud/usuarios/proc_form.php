@@ -11,6 +11,7 @@
 	$nascimento = $_POST["nasc"];	
 	$cpf = $_POST["cpf"];
 	$telefone = $_POST["fone"];
+	$id_cidade	= $_POST["cidade"];	// corresponde ao input select name="cidade" 
 	$senha = $_POST["senha1"];
 	$conf_senha =  $_POST["senha2"];
 
@@ -57,7 +58,7 @@
 			$sql = "UPDATE usuarios SET nome = '$usuario', email = '$email', telefone = '$telefone', cpf = '$cpf', nascimento = '$nascimento', senha = '$senha' WHERE id = $id";
 		} else {
 			// consulta sql que insere no banco
-			$sql = "INSERT INTO usuarios (nome, email, telefone, cpf, nascimento, senha) VALUES ('$usuario', '$email', '$telefone', '$cpf', '$nascimento', '$senha') ";
+			$sql = "INSERT INTO usuarios (nome, email, telefone, cpf, nascimento, senha, id_cidade) VALUES ('$usuario', '$email', '$telefone', '$cpf', '$nascimento', '$senha', $id_cidade) ";
 		}
 
 		if (mysqli_query($con, $sql) ){
