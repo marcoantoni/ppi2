@@ -2,7 +2,7 @@
 
 	// conecta.php
 
-	$con = mysqli_connect("127.0.0.1", "root", "", "programacaoparainternet");
+	$con = mysqli_connect("127.0.0.1", "programacaoparainternet", "1234", "programacaoparainternet");
 
 	// testa se estabeleceu a conexão com o banco de dados
 	if (!$con){
