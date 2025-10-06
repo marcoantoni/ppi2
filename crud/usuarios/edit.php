@@ -9,7 +9,12 @@
 <body>
 	<?php
 		// recuperando o id que vem pela url
-		$id_usuario = $_GET["id"];
+
+		// tratamento SQL Injection: O casting para (int) converte o valor recebido para número inteiro, eliminando a vulnerabilidade de injeção de código SQL. Isso garante que a variavel $id_usuario sempre tenha um numero inteiro armazenado
+		
+		$id_usuario = (int)$_GET["id"];
+
+		// No MySQL foi criado um usuário chamado "programacaoparainternet", com senha "1234". As credenciais foram atualizadas no arquivo conecta.php. A linha abaixo permanece inalterada, pois não foi realizada a inclusão de arquivos - isso reforça a importância de centralizar configurações em arquivos incluídos.
 
 		$con = mysqli_connect("127.0.0.1", "root", "", "programacaoparainternet");
 
