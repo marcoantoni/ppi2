@@ -1,9 +1,6 @@
 <?php
-	$conn = mysqli_connect("127.0.0.1", "root", "", "redes");
 
-	if (!$conn){
-    	die("Houve um erro ao conectar com o banco de dados");
-    }
+	require("conecta.php");
 
     $uf = $_POST["uf"];
 
